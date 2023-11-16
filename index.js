@@ -19,7 +19,10 @@ catch(e){
     console.log(e);
 }
 const RSchema=new Schema({
-    name:String,
+    name:{
+        type:String,
+        unique:true
+    },
     nodes:[Object],
     edges:[Object]
 })
