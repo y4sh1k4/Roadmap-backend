@@ -2,10 +2,12 @@ const express=require("express");
 const mongoose=require("mongoose");
 const app=express();
 const {Schema}=mongoose;
+const cors = require('cors');
 require("dotenv").config();
 
+app.use(cors());
 app.use(express.json());
-app.use(express.urlencoded({extended:true}))
+app.use(express.urlencoded({extended:true}));
 
 
 async function main(){
@@ -48,6 +50,6 @@ app.post("/",async (req,res)=>{
 })
 
 
-app.listen(3000,()=>{
+app.listen(8080,()=>{
     console.log("server started");
 })
