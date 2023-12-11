@@ -31,6 +31,10 @@ const RSchema=new Schema({
 
 const Rmodel=mongoose.model("Rmodel",RSchema);
 
+app.get("/",async(req,res)=>{
+    const data = await Rmodel.find({});
+    res.send(data);
+})
 app.get("/:name",async (req,res)=>{
     const Rname=req.params.name;
     const Rdata= await Rmodel.find({name:Rname});
