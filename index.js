@@ -53,7 +53,11 @@ app.post("/",async (req,res)=>{
     }
 })
 
-
+app.delete("/:name",async (req,res)=>{
+    const Rname=req.params.name;
+    const Rdata= await Rmodel.findOneAndDelete({name:Rname});
+    res.send(Rdata);
+})
 app.listen(8080,()=>{
     console.log("server started");
 })
